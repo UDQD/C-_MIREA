@@ -2,7 +2,7 @@
 using namespace std;
 struct Node
 {
-    int x;
+    string x;
     Node* Next;
 };
 class Queue
@@ -11,7 +11,7 @@ class Queue
 public:
     Queue() :Head(NULL), Tail(NULL) {};
     ~Queue();
-    void Add(int x);
+    void Add_elem(string x);
     void Show();
     void del();
     void isempty();
@@ -29,14 +29,14 @@ Queue::~Queue()
 
     }
 }
-void Queue::Add(int x)
+void Queue::Add_elem(string x)
 {
     Node* temp = new Node;
     temp->x = x;
     temp->Next = NULL;
-    cout << "Ёлемент ";
+    cout << "Elem ";
     cout << x;
-    cout << " добавлен \n";
+    cout << " has been added \n";
 
     if (Head != NULL)
     {
@@ -51,75 +51,58 @@ void Queue::del()
     if (Head != NULL)
     {
         Node* temp = Head;
-        cout << "Ёлемент " << Head->x << " ¬ышел " << endl;
+        cout << "Elem " << Head->x << " out " << endl;
         Head = Head->Next;
         delete temp;
     }
 }
 void Queue::isempty() {
     Node* temp = Head;
-    if (temp == NULL)	cout << "empty \n";
-    else cout << "not empty \n";
+    if (temp == NULL)	cout << "queue is empty \n";
+    else cout << "queue is not empty \n";
 }
 void Queue::Show() {
     Node* temp = Head;
-    cout << "Ёлемент " << temp->x << " - первый в очереди " << "\n";
+    if (temp == NULL)	cout << "queue is empty \n";
+    else cout << "Elem " << temp->x << " - first in queue " << "\n";
+}
+
+void menu(Queue lst) {
+    cout << "1 - add elem" << endl;
+    cout << "2 - remove elem" << endl;
+    cout << "3 - show first elem" << endl;
+    cout << "4 - is queue empty" << endl;
+    //cout << "5" << endl;
+    int inp;
+    cin >> inp;
+
+    if (inp == 1) {
+        cout << "write string: \n";
+        string inp2;
+        cin >> inp2;
+        lst.Add_elem(inp2);
+        menu(lst);
+    } else if (inp == 2) {
+        lst.del();
+        menu(lst);
+
+    } else if (inp == 3) {
+        lst.Show();
+        menu(lst);
+    } else if (inp == 4) {
+        lst.isempty();
+        menu(lst);
+    }
 }
 
 int main()
 {
-
-    setlocale(LC_ALL, "Russian");
     Queue lst;
-    while (true) {
-        cout << "1 - добавить элемент" << endl;
-        cout << "2 - удалить элемент" << endl;
-        cout << "3 - показать первый элемент в очереди" << endl;
-        cout << "4 - проверить пуста¤ ли очередь" << endl;
-        //cout << "5" << endl;
-        int inp;
-        cin >> inp;
-
-        if (inp == 1) {
-            cout << "¬ведите число: \n";
-            int inp2;
-            cin >> inp2;
-            lst.Add(inp2);
-        }
-        else if (inp == 2) {
-            lst.del();
-
-        }
-        else if (inp == 3) {
-            lst.Show();
-        }
-        else if (inp == 4) {
-            lst.isempty();
-        }
-
-    }
-
-
-    /*
-    setlocale(LC_ALL, "Russian");
-    Queue lst;
-    lst.isempty();
-    //system("CLS");
-    lst.Add(4);
-    lst.Add(5);
-    lst.isempty();
-    lst.Add(36);
-    lst.Show();
-
-
-    lst.del();
-    lst.isempty();
-    lst.del();
-    cout << endl;
-
-    lst.isempty();
-    //system("PAUSE");
-    return 0;
-    */
+    menu(lst);
 
 }
+
+
+
+
+
