@@ -21,7 +21,7 @@ class Queue {
         ~Queue();
         void Add_elem(std::string x);
         void Show();
-        void del();
+        string del();
         void isempty();
 
 

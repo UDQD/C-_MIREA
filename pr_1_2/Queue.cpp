@@ -25,7 +25,7 @@ void Queue::Add_elem(string x)
     temp->Next = NULL;
     cout << "Elem ";
     cout << x;
-    cout << " has been added \n";
+    cout << " was added in \n";
 
     if (Head != NULL)
     {
@@ -35,14 +35,16 @@ void Queue::Add_elem(string x)
     else Head = Tail = temp;
 }
 
-void Queue::del()
+string Queue::del()
 {
     if (Head != NULL)
     {
         Node* temp = Head;
         cout << "Elem " << Head->x << " out " << endl;
         Head = Head->Next;
+        return temp->x;
         delete temp;
+
     }
     else cout << "queue is empty \n";
 }
