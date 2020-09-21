@@ -1,22 +1,11 @@
+//
+// Created by UDQD on 21.09.2020.
+//
 #include <iostream>
 using namespace std;
-struct Node
-{
-    string x;
-    Node* Next;
-};
-class Queue
-{
-    Node* Head, * Tail;
-public:
-    Queue() :Head(NULL), Tail(NULL) {};
-    ~Queue();
-    void Add_elem(string x);
-    void Show();
-    void del();
-    void isempty();
 
-};
+#include "Queue.h"
+
 Queue::~Queue()
 {
     Node* temp = Head;
@@ -55,6 +44,7 @@ void Queue::del()
         Head = Head->Next;
         delete temp;
     }
+    else cout << "queue is empty \n";
 }
 void Queue::isempty() {
     Node* temp = Head;
@@ -66,45 +56,3 @@ void Queue::Show() {
     if (temp == NULL)	cout << "queue is empty \n";
     else cout << "Elem " << temp->x << " - first in queue " << "\n";
 }
-
-void menu(Queue lst) {
-    system("chcp 65001");
-    cout << "1 - add elem " << endl;
-    cout << "2 - remove elem " << endl;
-    cout << "3 - show first elem " << endl;
-    cout << "4 - is queue empty " << endl;
-    cout<<": ";
-    //cout << "5" << endl;
-    int inp;
-    cin >> inp;
-
-    if (inp == 1) {
-        cout << "write string: \n";
-        string inp2;
-        cin >> inp2;
-        lst.Add_elem(inp2);
-        menu(lst);
-    } else if (inp == 2) {
-        lst.del();
-        menu(lst);
-
-    } else if (inp == 3) {
-        lst.Show();
-        menu(lst);
-    } else if (inp == 4) {
-        lst.isempty();
-        menu(lst);
-    }
-}
-
-int main()
-{
-    Queue lst;
-    menu(lst);
-
-}
-
-
-
-
-
