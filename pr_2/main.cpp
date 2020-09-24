@@ -48,7 +48,7 @@ void Tree::add(int x) {
             if (x > temp->x) {
                 if (temp->More != NULL) {
                     temp = temp->More;
-//                    break;
+
                 } else {
                     temp->More = new Node;
                     temp->More->x = x;
@@ -57,7 +57,7 @@ void Tree::add(int x) {
             } else if (x < temp->x) {
                 if (temp->Less != NULL) {
                     temp = temp->Less;
-//                    break;
+
                 } else {
                     temp->Less = new Node;
                     temp->Less->x = x;
@@ -75,36 +75,35 @@ void Tree::chek(int x) {
     int c = 0;
     Node *temp = new Node;
     if (is_empty) {
-        cout<<"item is absent "<<endl;
+        cout << "item is absent " << endl;
 
     } else {
         temp = Head;
-//        Node *next = new Node;
+
         while (true) {
             if (x > temp->x) {
                 if (temp->More != NULL) {
                     temp = temp->More;
                     c++;
-//                    break;
+
                 } else {
-//                    temp->More = new Node;
-//                    temp->More->x = x;
-                    cout<<"item is absent "<<endl;
+
+
+                    cout << "item is absent " << endl;
                     break;
                 }
             } else if (x < temp->x) {
                 if (temp->Less != NULL) {
                     temp = temp->Less;
                     c++;
-//                    break;
+
                 } else {
-//                    temp->Less = new Node;
-//                    temp->Less->x = x;
-                    cout<<"item is absent "<<endl;
+
+                    cout << "item is absent " << endl;
                     break;
                 }
             } else {
-                cout << "range = "<< c << endl;
+                cout << "range = " << c << endl;
                 break;
             }
         }
@@ -144,39 +143,59 @@ void Tree::out_el_sim(Node N) {
 
 }
 
-int max(int a, int b){
-    if(a>=b) return a;
+int max(int a, int b) {
+    if (a >= b) return a;
     else return b;
 }
 
-int Tree::heigh(Node N){
-    if(N.More == NULL&&N.Less == NULL)  return 0;
-    if(N.More == NULL&&N.Less != NULL)  return 1+ this->heigh(*N.Less);
-    if(N.More != NULL&&N.Less == NULL)  return 1+ this->heigh(*N.More);
-    if(N.More != NULL&&N.Less != NULL)  return 1+max(this->heigh(*N.Less),this->heigh(*N.More));
+int Tree::heigh(Node N) {
+    if (N.More == NULL && N.Less == NULL) return 0;
+    if (N.More == NULL && N.Less != NULL) return 1 + this->heigh(*N.Less);
+    if (N.More != NULL && N.Less == NULL) return 1 + this->heigh(*N.More);
+    if (N.More != NULL && N.Less != NULL) return 1 + max(this->heigh(*N.Less), this->heigh(*N.More));
 
 }
 
-void menu(Tree tree){
+void menu(Tree tree) {
+    cout << "1 - add elem " << endl;
+    cout << "2 - forward output " << endl;
+    cout << "3 - simmetric output " << endl;
+    cout << "4 - length " << endl;
+    cout << "5 - heigh " << endl;
+    cout << ": ";
 
+    int inp;
+    cin >> inp;
+
+    if (inp == 1) {
+        cout << "write num: \n";
+        int inp2;
+        cin >> inp2;
+        tree.add(inp2);
+        menu(tree);
+    } else if (inp == 2) {
+        tree.forward();
+        menu(tree);
+
+    } else if (inp == 3) {
+        tree.simetr();
+        menu(tree);
+    } else if (inp == 4) {
+        cout << "write num: \n";
+        int inp2;
+        cin >> inp2;
+        tree.chek(inp2);
+        menu(tree);
+    } else if (inp == 5) {
+        cout << "heigh = " << tree.heigh(*tree.Head) << endl;
+        menu(tree);
+    }
 }
 
 int main() {
-//    Tree a;
-//    a.add(14);
-//    a.add(12);
-//    a.add(69);
-//    a.add(52);
-//    a.add(55);
-//    a.add(27);
-//    a.add(5);
-//    a.add(37);
-//    a.add(70);
-//    a.add(3);
-//    a.simetr();
-//    a.chek(337);
-//    cout<<a.heigh(*a.Head)<<endl;
-//    cout << "success" << endl;
+
+    Tree a;
+    menu(a);
 
 }
 
