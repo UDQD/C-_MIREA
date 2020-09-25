@@ -117,7 +117,7 @@ void Tree::forward() {
 }
 
 void Tree::out_el_for(Node N) {
-    cout << N.x << endl;
+    cout <<N.x << endl;
     if (N.Less != NULL) {
         this->out_el_for(*N.Less);
     }
@@ -162,7 +162,7 @@ void menu(Tree tree) {
     cout << "3 - simmetric output " << endl;
     cout << "4 - length " << endl;
     cout << "5 - heigh " << endl;
-    cout << ": ";
+    cout << ":";
 
     int inp;
     cin >> inp;
@@ -193,7 +193,7 @@ void menu(Tree tree) {
 }
 
 int main() {
-
+//    system("chcp 65001");
     Tree a;
     menu(a);
 
