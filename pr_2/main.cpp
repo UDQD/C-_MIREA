@@ -3,7 +3,7 @@
 using namespace std;
 
 struct Node {
-    int x;
+    string x;
     Node *More = NULL;
     Node *Less = NULL;
 };
@@ -17,7 +17,7 @@ public:
 
     Tree() : More(NULL), Less(NULL) { is_empty = true; };
 
-    void add(int x);
+    void add(string x);
 
     void forward();
 
@@ -27,12 +27,12 @@ public:
 
     void out_el_sim(Node N);
 
-    void chek(int x);
+    void chek(string x);
 
     int heigh(Node N);
 };
 
-void Tree::add(int x) {
+void Tree::add(string x) {
     Node *temp = new Node;
     if (is_empty) {
         temp->x = x;
@@ -71,7 +71,7 @@ void Tree::add(int x) {
     }
 }
 
-void Tree::chek(int x) {
+void Tree::chek(string x) {
     int c = 0;
     Node *temp = new Node;
     if (is_empty) {
@@ -149,7 +149,7 @@ int max(int a, int b) {
 }
 
 int Tree::heigh(Node N) {
-    if (N.More == NULL && N.Less == NULL) return 0;
+    if (N.More == NULL && N.Less == NULL) return 1;
     if (N.More == NULL && N.Less != NULL) return 1 + this->heigh(*N.Less);
     if (N.More != NULL && N.Less == NULL) return 1 + this->heigh(*N.More);
     if (N.More != NULL && N.Less != NULL) return 1 + max(this->heigh(*N.Less), this->heigh(*N.More));
@@ -168,8 +168,8 @@ void menu(Tree tree) {
     cin >> inp;
 
     if (inp == 1) {
-        cout << "write num: \n";
-        int inp2;
+        cout << "write string: \n";
+        string inp2;
         cin >> inp2;
         tree.add(inp2);
         menu(tree);
@@ -181,8 +181,8 @@ void menu(Tree tree) {
         tree.simetr();
         menu(tree);
     } else if (inp == 4) {
-        cout << "write num: \n";
-        int inp2;
+        cout << "write string: \n";
+        string inp2;
         cin >> inp2;
         tree.chek(inp2);
         menu(tree);
