@@ -13,7 +13,7 @@ class Tree {
 
 public:
     bool is_empty;
-    Node *Head;
+    Node *Head = NULL;
 
     Tree() : More(NULL), Less(NULL) { is_empty = true; };
 
@@ -30,6 +30,8 @@ public:
     void chek(string x);
 
     int heigh(Node N);
+
+    void out_heigh();
 };
 
 void Tree::add(string x) {
@@ -113,11 +115,12 @@ void Tree::chek(string x) {
 
 
 void Tree::forward() {
-    out_el_for(*Head);
+    if (!is_empty)out_el_for(*Head);
+    else cout << "Tree is empty" << endl;
 }
 
 void Tree::out_el_for(Node N) {
-    cout <<N.x << endl;
+    cout << N.x << endl;
     if (N.Less != NULL) {
         this->out_el_for(*N.Less);
     }
@@ -128,7 +131,9 @@ void Tree::out_el_for(Node N) {
 }
 
 void Tree::simetr() {
-    out_el_sim(*Head);
+
+    if (!is_empty)out_el_sim(*Head);
+    else cout << "Tree is empty" << endl;
 }
 
 void Tree::out_el_sim(Node N) {
@@ -148,11 +153,20 @@ int max(int a, int b) {
     else return b;
 }
 
+void Tree::out_heigh() {
+    if (!is_empty) cout << "heigh = " << this->heigh(*this->Head) << endl;
+    else cout << "Tree is empty" << endl;
+
+}
+
+
 int Tree::heigh(Node N) {
+
     if (N.More == NULL && N.Less == NULL) return 1;
     if (N.More == NULL && N.Less != NULL) return 1 + this->heigh(*N.Less);
     if (N.More != NULL && N.Less == NULL) return 1 + this->heigh(*N.More);
     if (N.More != NULL && N.Less != NULL) return 1 + max(this->heigh(*N.Less), this->heigh(*N.More));
+
 
 }
 
@@ -187,13 +201,13 @@ void menu(Tree tree) {
         tree.chek(inp2);
         menu(tree);
     } else if (inp == 5) {
-        cout << "heigh = " << tree.heigh(*tree.Head) << endl;
+        tree.out_heigh();
         menu(tree);
     }
 }
 
 int main() {
-//    system("chcp 65001");
+
     Tree a;
     menu(a);
 
