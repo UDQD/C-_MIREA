@@ -40,7 +40,7 @@ string Queue::del()
     if (Head != NULL)
     {
         Node* temp = Head;
-        cout << "Elem " << Head->x << " out " << endl;
+//        cout << "Elem " << Head->x << " out " << endl;
         Head = Head->Next;
         return temp->x;
         delete temp;
@@ -53,8 +53,21 @@ void Queue::isempty() {
     if (temp == NULL)	cout << "queue is empty \n";
     else cout << "queue is not empty \n";
 }
-void Queue::Show() {
+string Queue::Show() {
     Node* temp = Head;
-    if (temp == NULL)	cout << "queue is empty \n";
-    else cout << "Elem " << temp->x << " - first in queue " << "\n";
+    return temp->x;
+//    if (temp == NULL)	cout << "queue is empty \n";
+//    else cout << "Elem " << temp->x << " - first in queue " << "\n";
+}
+int Queue::len() {
+    Node* temp = Head;
+    int c = 0;
+    if (temp == NULL) return 0;
+    else{
+        while(temp!=NULL){
+            temp=temp->Next;
+            c++;
+        }
+        return c;
+    }
 }

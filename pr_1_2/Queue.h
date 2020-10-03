@@ -20,9 +20,10 @@ class Queue {
         {};
         ~Queue();
         void Add_elem(std::string x);
-        void Show();
+        string Show();
         string del();
         void isempty();
+        int len();
 
 
 };
