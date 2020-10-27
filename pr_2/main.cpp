@@ -32,6 +32,7 @@ public:
     int heigh(Node N);
 
     void out_heigh();
+
 };
 
 void Tree::add(string x) {

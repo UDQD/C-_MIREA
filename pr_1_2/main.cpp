@@ -154,6 +154,4 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     Queue lst;
     menu(lst);
-
-
 }

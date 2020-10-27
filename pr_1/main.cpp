@@ -68,7 +68,7 @@ void Queue::Show() {
 }
 
 void menu(Queue lst) {
-    system("chcp 65001");
+//    system("chcp 65001");
     cout << "1 - add elem " << endl;
     cout << "2 - remove elem " << endl;
     cout << "3 - show first elem " << endl;

@@ -3,4 +3,4 @@ project(pr_3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(pr_3 main.cpp)
+add_executable(pr_3 main.cpp Table_hash.cpp Table_hash.h)
