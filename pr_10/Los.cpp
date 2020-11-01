@@ -1,13 +1,6 @@
 #include "Los.h"
 #include <iostream>
-struct Node{
-    char simb;
-    int number = 1;
-    Node *next = NULL;
-    Node *next_layer = NULL;
-    int binar_code = -1;
-    bool is_last_layer = true;
-};
+
 
 //Los::~Los() {
 //    Node* temp = head;
@@ -58,3 +51,28 @@ int Los::count_true() {
     }
     return count;
 }
+
+Node* Los::pare_min() {
+
+    Node* temp = head;
+//    Node* temp_min_1 = new Node;
+//    Node* temp_min_2 = new Node;
+    Node temp_min[2];
+    unsigned long big_number = -1;
+    temp_min[0].number = big_number;
+    temp_min[1].number = big_number;
+    while (temp!=NULL){
+        if(temp->is_last_layer) {
+            if (temp->number < temp_min[0].number) temp_min[0] = *temp;
+            else if (temp->number < temp_min[1].number) temp_min[1] = *temp;
+            temp = temp->next;
+        }
+    }
+//    n1 = temp_min_1;
+//    n2 = temp_min_2;
+    return temp_min;
+
+
+}
+
+

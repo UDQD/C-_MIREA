@@ -1,4 +1,3 @@
-
 #include "Huffman.h"
 #include <list>
 void Huffman::set_string(string s) {
