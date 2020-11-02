@@ -57,13 +57,16 @@ Node* Los::pare_min() {
     Node* temp = head;
 //    Node* temp_min_1 = new Node;
 //    Node* temp_min_2 = new Node;
-    Node temp_min[2];
-    unsigned long big_number = -1;
+    static Node temp_min[2];
+    unsigned long big_number = pow(2,31)-1;
     temp_min[0].number = big_number;
     temp_min[1].number = big_number;
     while (temp!=NULL){
         if(temp->is_last_layer) {
-            if (temp->number < temp_min[0].number) temp_min[0] = *temp;
+            if (temp->number < temp_min[0].number){
+                temp_min[1] = temp_min[0];
+                temp_min[0] = *temp;
+            }
             else if (temp->number < temp_min[1].number) temp_min[1] = *temp;
             temp = temp->next;
         }
