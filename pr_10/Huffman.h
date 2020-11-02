@@ -9,14 +9,15 @@ using namespace std;
 class Huffman {
 private:
     Los los;
-//    Los list_of_nodes;
+    Los tree;
     string name = "A";
 
 public:
     void set_string(string s);
+    void make_tree();
     void compress();
     void get_code();
-    void make_tree();
+
 
 
 };
