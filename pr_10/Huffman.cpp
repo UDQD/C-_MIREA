@@ -1,11 +1,13 @@
 #include "Huffman.h"
-#include <list>
+
+#include <string>
+
 void Huffman::set_string(string s) {
     name = s;
-    for(int i = 0;i<name.length();i++){
-        if(los.find_ell(name[i])==NULL){
+    for (int i = 0; i < name.length(); i++) {
+        if (los.find_ell(name[i]) == NULL) {
             los.add_ell(name[i]);
-        }else{
+        } else {
             los.inc_ell(los.find_ell(name[i]));
         }
     }
@@ -14,18 +16,12 @@ void Huffman::set_string(string s) {
 
 void Huffman::make_tree() {
     tree = los;
-    while(tree.count_true()>1){
+    while (tree.count_true() > 1) {
         int number_of_true = tree.count_true();
-//        Node* temp_nodes;
-//        Node min_nodes[2];
-//        temp_nodes = tree.pare_min();
-//        min_nodes[0] = temp_nodes[0];
-//        min_nodes[1] = temp_nodes[1];
-//        char c1 = min_nodes[0].simb;
-//        char c2 = min_nodes[1].simb;
+
         int id_1 = tree.pare_min()[0];
         int id_2 = tree.pare_min()[1];
-        Node* new_node = new Node;
+        Node *new_node = new Node;
         new_node->id = tree.get_id();
         tree.inc_id();
         tree.find_ell(id_1)->next_layer = new_node;
@@ -43,6 +39,23 @@ void Huffman::make_tree() {
 
 void Huffman::compress() {
 
+    for (int i = 0; i < name.length(); i++) {
+        string simb_code = "";
+        Node *temp = tree.find_ell(name[i]);
+        while (temp->binar_code != -1) {
+            simb_code += to_string(temp->binar_code);
+            temp = temp->next_layer;
+        }
+        string out = "";
+        for (int i = simb_code.length() - 1; i >= 0; i--)
+            out += simb_code[i];
+        code += out;
+    }
+
+
 }
 
-void Huffman::get_code() {}
+string Huffman::get_code() {
+    return code;
+}
+
