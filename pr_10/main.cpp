@@ -17,7 +17,6 @@ int main() {
         a.make_tree();
         a.compress();
         cout << a.get_code() << endl;
-//        cout << "Repeat ?" << endl;
         cout << "1 - new string" << endl;
         cout << "0 - exit" << endl;
         cin >> choice;
