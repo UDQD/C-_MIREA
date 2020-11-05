@@ -2,182 +2,139 @@
 
 using namespace std;
 
-struct Node {
-    string x;
-    Node *More = NULL;
-    Node *Less = NULL;
-};
+#include "Queue.h"
+#include <windows.h>
+#include <string>
 
-class Tree {
-    Node *More, *Less;
+void act(Queue lst);
 
-public:
-    bool is_empty;
-    Node *Head = NULL;
+bool mux(string x) {
+    if (x == "*" || x == "/") return true;
+    else return false;
+}
 
-    Tree() : More(NULL), Less(NULL) { is_empty = true; };
+bool sign(string x) {
+    if (x == "+" || x == "-" || x == "*" || x == "/") return true;
+    else return false;
+}
 
-    void add(string x);
+void out_str(string x[3]) {
 
-    void forward();
-
-    void simetr();
-
-    void out_el_for(Node N);
-
-    void out_el_sim(Node N);
-
-    void chek(string x);
-
-    int heigh(Node N);
-
-    void out_heigh();
-
-};
-
-void Tree::add(string x) {
-    Node *temp = new Node;
-    if (is_empty) {
-        temp->x = x;
-        temp->Less = NULL;
-        temp->More = NULL;
-        Head = temp;
-        is_empty = false;
-
+    if (!mux(x[2])) {
+        cout << ("(" + x[0] + x[2] + x[1] + ")");
     } else {
-        temp = Head;
-        Node *next = new Node;
-        while (true) {
-            if (x > temp->x) {
-                if (temp->More != NULL) {
-                    temp = temp->More;
-
-                } else {
-                    temp->More = new Node;
-                    temp->More->x = x;
-                    break;
-                }
-            } else if (x < temp->x) {
-                if (temp->Less != NULL) {
-                    temp = temp->Less;
-
-                } else {
-                    temp->Less = new Node;
-                    temp->Less->x = x;
-                    break;
-                }
-            } else {
-                cout << "This item already exists" << endl;
-                break;
-            }
-        }
+        cout << (x[0] + x[2] + x[1]);
     }
 }
 
-void Tree::chek(string x) {
-    int c = 0;
-    Node *temp = new Node;
-    if (is_empty) {
-        cout << "item is absent " << endl;
 
-    } else {
-        temp = Head;
+void show_2_3_4(Queue lst) {
+    if (lst.len() == 4) {
+        string *s = new string[4];
+        s[0] = lst.Show();
+        lst.del();
 
-        while (true) {
-            if (x > temp->x) {
-                if (temp->More != NULL) {
-                    temp = temp->More;
-                    c++;
+        s[1] = lst.Show();
+        lst.del();
 
-                } else {
+        s[2] = lst.Show();
+        lst.del();
 
+        s[3] = lst.Show();
+        lst.del();
+        if (mux(s[0]) && !mux(s[1])) cout << (s[0] + "(" + s[2] + s[1] + s[3] + ")");
+        else cout << (s[0] + s[2] + s[1] + s[3]);
+    } else if (lst.len() == 3) {
+        string *s = new string[3];
+        s[0] = lst.Show();
+        lst.del();
 
-                    cout << "item is absent " << endl;
-                    break;
-                }
-            } else if (x < temp->x) {
-                if (temp->Less != NULL) {
-                    temp = temp->Less;
-                    c++;
+        s[1] = lst.Show();
+        lst.del();
 
-                } else {
+        s[2] = lst.Show();
+        lst.del();
+        if (mux(s[0])) cout << (s[1] + s[0] + s[2]);
+        else cout << ("(" + s[1] + s[0] + s[2] + ")");
+    } else if (lst.len() == 2) {
+        string *s = new string[2];
+        s[0] = lst.Show();
+        lst.del();
 
-                    cout << "item is absent " << endl;
-                    break;
-                }
-            } else {
-                cout << "range = " << c << endl;
-                break;
+        s[1] = lst.Show();
+        lst.del();
+        cout << (s[0] + s[1]);
+
+    }
+}
+
+void act2(Queue lst, string *buf, Queue lst_2) {
+
+    if (!sign(buf[0]) && !sign(buf[1]) && sign(buf[2])) {
+        out_str(buf);
+        if (lst.len() >= 3) {
+            for (int i = 0; i < 3; i++) {
+                buf[2 - i] = lst.Show();
+                lst.del();
             }
+            act2(lst, buf, lst_2);
+
+        } else {
+            int ln = lst.len();
+            for (int i = 0; i < ln; i++) {
+
+                string t = lst.Show();
+
+                lst.del();
+
+                lst_2.Add_elem(t);
+
+            }
+            act(lst_2);
         }
 
-    }
-}
-
-
-void Tree::forward() {
-    if (!is_empty)out_el_for(*Head);
-    else cout << "Tree is empty" << endl;
-}
-
-void Tree::out_el_for(Node N) {
-    cout << N.x << endl;
-    if (N.Less != NULL) {
-        this->out_el_for(*N.Less);
-    }
-    if (N.More != NULL) {
-        this->out_el_for(*N.More);
+    } else {
+        if (lst.len() >= 1) {
+            lst_2.Add_elem(buf[2]);
+            buf[2] = buf[1];
+            buf[1] = buf[0];
+            buf[0] = lst.Show();
+            lst.del();
+            act2(lst, buf, lst_2);
+        } else {
+            lst_2.Add_elem(buf[2]);
+            lst_2.Add_elem(buf[1]);
+            lst_2.Add_elem(buf[0]);
+            act(lst_2);
+        }
     }
 
-}
+    for (int i = 0; i < 3; i++) {
 
-void Tree::simetr() {
-
-    if (!is_empty)out_el_sim(*Head);
-    else cout << "Tree is empty" << endl;
-}
-
-void Tree::out_el_sim(Node N) {
-
-    if (N.Less != NULL) {
-        this->out_el_sim(*N.Less);
-    }
-    cout << N.x << endl;
-    if (N.More != NULL) {
-        this->out_el_sim(*N.More);
     }
 
 }
 
-int max(int a, int b) {
-    if (a >= b) return a;
-    else return b;
-}
 
-void Tree::out_heigh() {
-    if (!is_empty) cout << "heigh = " << this->heigh(*this->Head) << endl;
-    else cout << "Tree is empty" << endl;
+void act(Queue lst) {
+    Queue lst_2;
+    string buf[3] = {"", "", ""};
+    if (lst.len() <= 4) show_2_3_4(lst);
+    else {
+        for (int i = 0; i < 3; i++) {
+            buf[2 - i] = lst.Show();
+            lst.del();
+        }
+        act2(lst, buf, lst_2);
 
-}
-
-
-int Tree::heigh(Node N) {
-
-    if (N.More == NULL && N.Less == NULL) return 1;
-    if (N.More == NULL && N.Less != NULL) return 1 + this->heigh(*N.Less);
-    if (N.More != NULL && N.Less == NULL) return 1 + this->heigh(*N.More);
-    if (N.More != NULL && N.Less != NULL) return 1 + max(this->heigh(*N.Less), this->heigh(*N.More));
-
+    }
 
 }
 
-void menu(Tree tree) {
+void menu(Queue lst) {
+
     cout << "1 - add elem " << endl;
-    cout << "2 - forward output " << endl;
-    cout << "3 - simmetric output " << endl;
-    cout << "4 - length " << endl;
-    cout << "5 - heigh " << endl;
-    cout << ":";
+    cout << "2 - show " << endl;
 
     int inp;
     cin >> inp;
@@ -186,31 +143,15 @@ void menu(Tree tree) {
         cout << "write string: \n";
         string inp2;
         cin >> inp2;
-        tree.add(inp2);
-        menu(tree);
-    } else if (inp == 2) {
-        tree.forward();
-        menu(tree);
-
-    } else if (inp == 3) {
-        tree.simetr();
-        menu(tree);
-    } else if (inp == 4) {
-        cout << "write string: \n";
-        string inp2;
-        cin >> inp2;
-        tree.chek(inp2);
-        menu(tree);
-    } else if (inp == 5) {
-        tree.out_heigh();
-        menu(tree);
+        lst.Add_elem(inp2);
+        menu(lst);
+    } else {
+        act(lst);
     }
 }
 
 int main() {
-
-    Tree a;
-    menu(a);
-
+    SetConsoleOutputCP(CP_UTF8);
+    Queue lst;
+    menu(lst);
 }
-
