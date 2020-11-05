@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_1/Los.h
+iostream
+-
+
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_1/main.cpp
+Los.h
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_1/Los.h
+

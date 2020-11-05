@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_3/main.cpp
+iostream
+-
+string
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_3/string
+

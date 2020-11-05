@@ -1,0 +1,4 @@
+"C:\Users\UDQD\Desktop\Программы\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_10
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/cmake-build-debug
