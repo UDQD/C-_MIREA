@@ -36,7 +36,7 @@ void read_file() {
             product* temp = new product;
             temp->id = arr[0];
             temp->name = arr[1];
-            temp->price = arr[2];
+            temp->price = arr[2].substr(0, arr[2].length()-2);
             list.push_back(*temp);
         }
     }
@@ -94,15 +94,11 @@ void change_elem_id(string id, string new_data, int fields) {
 
     if(fields == 0){
         list[change_id].name = new_data;
-        //cout << "------------------name" << endl;
     }
     if (fields == 1) {
         list[change_id].price = new_data;
-        //cout << "------------------price" << endl;
     }
-    //cout << "------------------nothing" << endl;
     file_update();
-    //cout << "Товар изменен " << endl;
 }
 
 void change_elems(vector<string> vec, string new_data, int fields) {
@@ -142,11 +138,9 @@ int main()
     if (!fout.is_open()) cout << "error" << endl;
     else {
         fout << "";
-
     }
     fout.close();
 
-    //read_file();
     while (true) {
         cout << "Выберите команду:" << endl;
         cout << "[1] - Добавить товар." << endl;
@@ -174,7 +168,7 @@ int main()
             continue;
         }
         if (ch == 3) {
-            cout << "Введите через пробел номера товаров (0 для завершения)" << endl;
+            cout << "____Введите через пробел номера товаров (0 для завершения)" << endl;
             cout << "-------->";
             string new_id = "";
             vector<string> ids;
@@ -183,7 +177,7 @@ int main()
                 ids.push_back(new_id);
                 cin >> new_id;
             }
-            cout << "Введите новые данные и название поля для вставки" << endl;
+            cout << "____Введите новые данные и название поля для вставки" << endl;
             cout << "-------->";
             string data;
             int field;
