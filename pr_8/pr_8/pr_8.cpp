@@ -1,4 +1,4 @@
-﻿#include <stdlib.h>
+﻿
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -36,7 +36,7 @@ void read_file() {
             product* temp = new product;
             temp->id = arr[0];
             temp->name = arr[1];
-            temp->price = arr[2].substr(0, arr[2].length()-2);
+            temp->price = arr[2].substr(0, arr[2].length()-1);
             list.push_back(*temp);
         }
     }
