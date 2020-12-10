@@ -1,0 +1,8 @@
+﻿  pr_8.cpp
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(61,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(70,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(72,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(109,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(120,27): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\pr_8\pr_8.cpp(131,23): warning C4018: <: несоответствие типов со знаком и без знака
+  pr_8.vcxproj -> C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_8\Debug\pr_8.exe

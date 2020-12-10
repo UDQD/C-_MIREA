@@ -67,27 +67,22 @@ bool Los::in_los(int x) {
 }
 
 void Los::del_ell(int x) {
-    while (this->in_los(x)){
+    while (this->in_los(x)) {
         Node *temp = head;
-        while (temp->value!=x){
+        while (temp->value != x) {
             temp = temp->next;
         }
-        if(temp == head)
-        {
+        if (temp == head) {
             head = head->next;
-        }
-        else if(temp == tail)
-        {
+        } else if (temp == tail) {
             Node *temp2 = head;
-            while (temp2->next!=tail){
+            while (temp2->next != tail) {
                 temp2 = temp2->next;
             }
             temp2->next = NULL;
-        }
-        else
-        {
+        } else {
             Node *temp2 = head;
-            while (temp2->next->value!=x){
+            while (temp2->next->value != x) {
                 temp2 = temp2->next;
             }
             temp2->next = temp->next;

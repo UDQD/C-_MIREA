@@ -1,11 +1,11 @@
 #include "Los.h"
 
-void menu(Los los){
+void menu(Los los) {
     bool work = true;
-    while(work) {
+    while (work) {
         int x = 0;
         int a = 0;
-        cout<<"==================================================================="<<endl;
+        cout << "===================================================================" << endl;
         cout << "1 - add element" << endl;
         cout << "2 - add element after another elem." << endl;
         cout << "3 - delete element" << endl;
@@ -15,33 +15,33 @@ void menu(Los los){
         cout << "chose command: ";
         int ch;
         cin >> ch;
-        cout<<endl;
+        cout << endl;
         cin.ignore();
         switch (ch) {
             case 1:
                 cout << "write number: ";
                 cin >> x;
-                cout<<endl;
-//                cin.ignore();
+                cout << endl;
+
                 los.add_ell(x);
                 break;
             case 2:
                 cout << "write number: ";
                 cin >> x;
-                cout<<endl;
-//                cin.ignore();
+                cout << endl;
+
                 cout << "write target number: ";
                 cin >> a;
-                cout<<endl;
-//                cin.ignore();
+                cout << endl;
+
                 los.add_ell(x, a);
                 break;
             case 3:
                 cout << "write number: ";
                 cin >> x;
-                cout<<endl;
-//                cin.ignore();
-                cout<<endl;
+                cout << endl;
+
+                cout << endl;
                 los.del_ell(x);
                 break;
             case 4:
@@ -60,8 +60,6 @@ void menu(Los los){
 int main() {
     Los los;
     menu(los);
-
-
 
 
 }

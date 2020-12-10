@@ -1,7 +1,5 @@
 ﻿#include "Deque.h"
-#include <string>
 void menu(Deque dec) {
-	//cin.clear();
 	cin.ignore();
 	cout << "Выберите команду:" << endl;
 	cout << "[1] - Добавить элемент." << endl;
@@ -13,24 +11,13 @@ void menu(Deque dec) {
 	cout << "---->";
 	int ch = 0;
 	cin >> ch;
-	//getline(cin, ch);
-	
-	//cin.clear();
-	//cin.ignore();
 	if (ch == 1) {
 		cout << "____[1] - Добавить слева." << endl;
 		cout << "____[2] - Добавить справа." << endl;
 		cout << "____[3] - Назад." << endl;
 		cout << "-------->";
 		int ch2 = 0;
-		/*cin.ignore();*/
-		//cin.clear();
 		cin >> ch2;
-		//getline(cin, ch2);
-		//cin.clear();
-		//cin.ignore();
-		//cin.clear();
-		//cin.ignore();
 		if (ch2 == 1) {
 			int x = 0;
 			cout << "Введите число." << endl;
@@ -60,9 +47,6 @@ void menu(Deque dec) {
 		cout << "-------->";
 		int ch2 = 0;
 		cin >> ch2;
-		//getline(cin, ch2);
-		//cin.clear();
-		//cin.ignore();
 		if (ch2 == 1) {
 			cout <<	dec.pop_left()<<endl;
 			menu(dec);
@@ -83,9 +67,6 @@ void menu(Deque dec) {
 		cout << "-------->";
 		int ch2 = 0;
 		cin >> ch2;
-		//getline(cin, ch2);
-		//cin.clear();
-		//cin.ignore();
 		if (ch2 == 1) {
 			cout << dec.peek_left() << endl;
 			menu(dec);

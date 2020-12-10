@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_2/main.cpp" "C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_2/cmake-build-debug/CMakeFiles/pr_2.dir/main.cpp.obj"
+  "C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_6/main.cpp" "C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_6/cmake-build-debug/CMakeFiles/pr_2.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

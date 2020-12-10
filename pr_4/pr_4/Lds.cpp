@@ -80,7 +80,6 @@ void Lds::del(int x) {
 Node* Lds::find(int x) {
 	Node* temp = new Node;
 	Node* out = new Node;
-	//bool t = false;
 	temp = head;
 	while (temp != NULL) {
 		if (temp->num == x) {

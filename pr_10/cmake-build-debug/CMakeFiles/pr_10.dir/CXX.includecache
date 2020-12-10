@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Huffman.cpp
+Huffman.h
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Huffman.h
+string
+-
+
 C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Huffman.h
 iostream
 -
@@ -13,6 +19,12 @@ list
 -
 Los.h
 C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Los.h
+
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Los.cpp
+Los.h
+C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Los.h
+iostream
+-
 
 C:/Users/UDQD/Documents/GitHub/Cpp_MIREA/pr_10/Los.h
 iostream

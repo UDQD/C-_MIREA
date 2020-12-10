@@ -17,7 +17,7 @@ void menu(Lds lds) {
         cout << "Введите элемент:";
         cin >> el;
         lds.add(el);
-        cout << "Элемент "<<el<<" был добавлен в вписок." << endl;
+        cout << "Элемент "<<el<<" был добавлен в список." << endl;
 		menu(lds);
 	}
 	else if (ch == 2)

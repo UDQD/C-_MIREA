@@ -1,0 +1,6 @@
+﻿  Graph.cpp
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_11\pr_11\Graph.cpp(4,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_11\pr_11\Graph.cpp(37,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_11\pr_11\Graph.cpp(46,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_11\pr_11\Graph.cpp(47,21): warning C4018: <: несоответствие типов со знаком и без знака
+  pr_11.vcxproj -> C:\Users\UDQD\Documents\GitHub\Cpp_MIREA\pr_11\Debug\pr_11.exe
